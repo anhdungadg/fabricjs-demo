@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="kitchensink">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Frame art on the wall | Fabric.js Demos</title>
+
+    <link rel="stylesheet" href="http://fabricjs.com/css/master.css">
+    <link rel="stylesheet" href="http://fabricjs.com/css/prism.css">
+    <style>
+      pre { margin-left: 15px !important }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="../lib/excanvas.js"></script>
+    <![endif]-->
+
+    <script src="http://fabricjs.com/lib/prism.js"></script>
+    <script>
+      (function() {
+        var fabricUrl = 'https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.1/fabric.min.js';
+        if (document.location.search.indexOf('load_fabric_from=') > -1) {
+          var match = document.location.search.match(/load_fabric_from=([^&]*)/);
+          if (match && match[1]) {
+            fabricUrl = match[1];
+          }
+        }
+        document.write('<script src="' + fabricUrl + '"><\/script>');
+      })();
+    </script>
+    <script src="http://fabricjs.com/js/master.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+  </head>
+  <body>
+  
+  <div class="block">
+  <h3>Custom background image</h3>
+  <canvas id="c17" width="1349" height="901"></canvas>
+  
+  <br /><br /><br />
+  <canvas id="c" width="800" height="600"></canvas>
+
+  <img src="1.jpg" id="my-image">
+
+<script>
+(function(){
+var imgElement = document.getElementById('my-image');
+  var canvas = new fabric.Canvas('c17');
+  //canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
+  canvas.add(new fabric.Image(imgElement, {left:250, top:100, opacity:0.5, borderColor: '#fff'}).scale(0.5));
+  canvas.setBackgroundImage('https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80', canvas.renderAll.bind(canvas));
+  this.__canvases.push(canvas);
+})();
+
+(function(){
+var canvas = new fabric.Canvas('c');
+var imgElement = document.getElementById('my-image');
+var imgInstance = new fabric.Image(imgElement, {
+  left: 100,
+  top: 100,
+  angle: 30,
+  opacity: 0.85
+});
+canvas.add(imgInstance);
+})();
+
+</script>
+</div>
+
+  
+  
+  </body>
+  
+ </html>
